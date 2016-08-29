@@ -16,17 +16,17 @@
 {
     unsigned int count = 0;
     Ivar *ivar = class_copyIvarList(self, &count);
-    NSMutableArray *propertyNameArray = [[NSMutableArray alloc] init];
+    NSMutableArray *ivarNameArray = [[NSMutableArray alloc] init];
     for (int i = 0; i<count; i++) {
         Ivar iva = ivar[i];
         const char *name = ivar_getName(iva);
         NSString *strName = [NSString stringWithUTF8String:name];
-        [propertyNameArray addObject:strName];
+        [ivarNameArray addObject:strName];
         
     }
     
     free(ivar);
-    return propertyNameArray;
+    return ivarNameArray;
     
 }
 
